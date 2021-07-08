@@ -1,22 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react'
 
-function App() {
+function App(props) {
+  const {backgroundColor, highlightColor, companyName } = props
+  const [color, setColor] = React.useState('red')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="widget" style={{backgroundColor: backgroundColor}}>
+      <header className="widget-header">
+        <h4 style={{color: highlightColor}}>
+          Hey I'm a cool widget, my name is { companyName }
+        </h4>
+        <h2 className="number" style={{color:color}}>Change my color</h2>
+        <button onClick={() => props.changeColor(setColor, 'blue')}>blue</button>
+        <button onClick={() => props.changeColor(setColor, 'red')}>red</button>
+        <button onClick={() => props.changeColor(setColor, 'green')}>green</button>
       </header>
     </div>
   );
