@@ -4,6 +4,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import MyWidget from "./widget";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 ReactDOM.render(<App {...window.xprops}/>, document.getElementById("root"));
 
