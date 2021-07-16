@@ -10,11 +10,6 @@ import axios from "axios";
 export default function Iframe(props) {
   const { highlightColor, backgroundColor, companyName } = props;
   const [token, setToken] = useState("");
-  const [jsMemory, setJsMemoryInfo] = useState({});
-
-  useEffect(() => {
-    setJsMemoryInfo(window.performance.memory);
-  }, []);
 
   function login() {
     console.log("hello");
@@ -46,11 +41,6 @@ export default function Iframe(props) {
               <p>This is your auth token returned from the api: {token}</p>
             </div>
           )}
-          <p>Some data about webpage javascript heap size only available in chrome:</p>
-          <ul>
-            {/* <li><strong>Js Heap Size Limit:</strong> {jsMemory.jsHeapSizeLimit}</li>
-            <li><strong>Total Js Heap Size:</strong> {jsMemory.}</li> */}
-          </ul>
         </Col>
       </Row>
     </Container>
