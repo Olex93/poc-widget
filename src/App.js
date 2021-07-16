@@ -10,6 +10,9 @@ import Col from "react-bootstrap/Col";
 import "./scss/typography.scss";
 import "./scss/global.scss";
 
+//Third party package to pull ip data
+var ip = require("ip");
+
 function App(props) {
   const {
     backgroundColor,
@@ -21,8 +24,22 @@ function App(props) {
   //This is an example of how functions can
   // const [color, setColor] = React.useState('red')
 
+  const [ipAddress, setIpAddress] = React.useState("");
+  const [totalResourcesSize, setTotalResourcesSize] = React.useState(0);
+
+  
+  React.useEffect(() => {
+    //Set IP address
+    setIpAddress(ip.address());
+    props.calcLoadedResources(setTotalResourcesSize);
+  }, []);
+
   return (
-    <Container fluid className="widget" style={{ backgroundColor: backgroundColor }}>
+    <Container
+      fluid
+      className="widget"
+      style={{ backgroundColor: backgroundColor }}
+    >
       <Row className="widget-containerRow">
         <Col className="widget-containerCol">
           {widgetType === "chatBox" && (
@@ -30,6 +47,8 @@ function App(props) {
               backgroundColor={backgroundColor}
               highlightColor={highlightColor}
               companyName={companyName}
+              ipAddress={ipAddress}
+              totalResourcesSize={totalResourcesSize}
             />
           )}
           {widgetType === "topBar" && (
@@ -37,6 +56,8 @@ function App(props) {
               backgroundColor={backgroundColor}
               highlightColor={highlightColor}
               companyName={companyName}
+              ipAddress={ipAddress}
+              totalResourcesSize={totalResourcesSize}
             />
           )}
           {widgetType === "footer" && (
@@ -44,6 +65,8 @@ function App(props) {
               backgroundColor={backgroundColor}
               highlightColor={highlightColor}
               companyName={companyName}
+              ipAddress={ipAddress}
+              totalResourcesSize={totalResourcesSize}
             />
           )}
           {widgetType === "iframeEmbed" && (
@@ -51,6 +74,8 @@ function App(props) {
               backgroundColor={backgroundColor}
               highlightColor={highlightColor}
               companyName={companyName}
+              ipAddress={ipAddress}
+              totalResourcesSize={totalResourcesSize}
             />
           )}
           {/* <header className="widget-header">
