@@ -15,7 +15,7 @@
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1",
-    "zoid": "^9.0.70"
+    "zoid": "^9.0.71"
   },
   "scripts": {
     "start": "react-scripts start",
